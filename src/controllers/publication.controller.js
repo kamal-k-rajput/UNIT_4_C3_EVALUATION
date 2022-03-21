@@ -1,13 +1,13 @@
 const express = require("express");
 
-const User = require("../models/user.model");
+const Publicaiton = require("../models/publication.model");
 
 const router = express.Router();
 
 router.get("", async (req, res) => {
   try {
-    const users = await User.find().lean().exec();
-    return res.status(201).send({ users: users });
+    const user = await Publicaiton.find().lean().exec();
+    return res.status(201).send({ user: user });
   } catch (err) {
     return res.status(404).send({ message: err.message });
   }
